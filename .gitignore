@@ -1,0 +1,5 @@
+# no bin or object directories
+bin/
+obj/
+# no .csproj files
+*.csproj*
