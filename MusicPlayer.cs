@@ -33,9 +33,10 @@ public class MusicPlayer
     {
       outputDevice.Init(audioFile);
       outputDevice.Play();
+      Console.WriteLine($"Currently playing {songmp3}.");
       while (outputDevice.PlaybackState == PlaybackState.Playing)
       {
-        Thread.Sleep(1000);
+        //Thread.Sleep(1000);
       }
     }
   }
