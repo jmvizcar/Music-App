@@ -28,15 +28,19 @@ public class MusicPlayer
     Shuffle = false;
   }
   public void Play(string songmp3){
+    bool playing = false;
     using(var audioFile = new AudioFileReader(songmp3))
     using(var outputDevice = new WaveOutEvent())
     {
+      playing = true;
       outputDevice.Init(audioFile);
       outputDevice.Play();
       Console.WriteLine($"Currently playing {songmp3}.");
-      while (outputDevice.PlaybackState == PlaybackState.Playing)
+      while (outputDevice.PlaybackState == PlaybackState.Playing && playing)
       {
-        //Thread.Sleep(1000);
+        Console.Write("Hit Enter to stop playing: ");
+        Console.ReadLine();
+        playing = false;
       }
     }
   }
