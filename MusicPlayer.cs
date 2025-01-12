@@ -48,7 +48,8 @@ public class MusicPlayer :IDisposable
       }
       switch(option)
       {
-        case 1: this.Play(this.currentPlaylist[99]); break;
+        case 1: 
+          this.Play(this.currentPlaylist[99]); break;
         case 0: running = false; break;
       }
     }
