@@ -36,7 +36,7 @@ public class MusicPlayer :IDisposable
     while(running)
     {
       int option = 0;
-      Console.Write("1) Play\n0) Exit\nSelect what you would like to do: ");
+      Console.Write("1) Play\n2)Play specific song\n0) Exit\nSelect what you would like to do: ");
       try
       {
         option = Convert.ToInt32(Console.ReadLine());
@@ -49,7 +49,11 @@ public class MusicPlayer :IDisposable
       switch(option)
       {
         case 1: 
-          this.Play(this.currentPlaylist[99]); break;
+          this.Play(this.currentPlaylist[99]);
+          break;
+        case 2:
+          this.PickSong();
+          break;
         case 0: running = false; break;
       }
     }
@@ -70,7 +74,12 @@ public class MusicPlayer :IDisposable
     }
     audioFile.Dispose();
   }
-
+  public void PickSong()
+  {
+    Console.Write("Pick the Song you want to play: ");
+    this.CurrentSong = Console.ReadLine();
+    this.Play(this.CurrentSong);
+  }
   public void Dispose()
   {
     outputDevice.Dispose();
