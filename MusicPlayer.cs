@@ -6,6 +6,7 @@ public class MusicPlayer :IDisposable
   private readonly WaveOutEvent outputDevice;
   private string path;
   private bool running;
+  private bool isPlaying;
   // Variable to hold the full list of albums currently in the Music directory.
   private List<string> musicDirect;
   public List<string> currentPlaylist;
@@ -30,13 +31,14 @@ public class MusicPlayer :IDisposable
     CurrentTime = 0;
     Shuffle = false;
     running = true;
+    isPlaying = false;
   }
   public void Menu()
   {
     while(running)
     {
       int option = 0;
-      Console.Write("1) Play\n2)Play specific song\n0) Exit\nSelect what you would like to do: ");
+      Console.Write("1) Play\n2) Play specific song\n0) Exit\nSelect what you would like to do: ");
       try
       {
         option = Convert.ToInt32(Console.ReadLine());
