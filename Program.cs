@@ -3,7 +3,7 @@
   public static void Main()
   {
     MusicPlayer MP = new MusicPlayer();
-    MP.Play(MP.currentPlaylist[99]);
+    MP.Menu();
     Console.WriteLine("Hello World! I am alive!");
   }
 }
