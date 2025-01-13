@@ -76,10 +76,14 @@ public class MusicPlayer :IDisposable
     }
     audioFile.Dispose();
   }
+  public void Stop()
+  {
+    outputDevice.Stop();
+  }
   public void PickSong()
   {
     Console.Write("Pick the Song you want to play: ");
-    this.CurrentSong = Console.ReadLine();
+    this.CurrentSong = Console.ReadLine()!;
     this.Play(this.CurrentSong);
   }
   public void Dispose()
